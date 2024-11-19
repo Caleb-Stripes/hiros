@@ -12,13 +12,11 @@ class RollTable:
         print(numb)
         return self.table_data[numb]
         
-        
     def add_item(self, name: str, description: str, weight: int=1, dto: dict={}):
         i = weight
         while i > 0:
             self.table_data.append(RtItem(name, description, weight, dto))
             i -= 1
-    
     
     def add_rt_item(self, rt_item: RtItem):
         self.add_item(rt_item.name, rt_item.description, rt_item.weight, rt_item.dto)
