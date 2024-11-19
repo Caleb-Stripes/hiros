@@ -4,7 +4,7 @@ from rolls.dice import Dice, Die
 class Roller:
     def __init__(self, *, 
                  character: HiroClass=HiroClass('Hiro', AbilityScores(10,10,10,10,10,10)), 
-                 roll_type: str=None, 
+                 roll_type: str='standard', 
                  ability: str=None, 
                  skill: str=None, 
                  logging=False,
@@ -35,7 +35,7 @@ class Roller:
     
     def calc_mod(self):
         roll_type = {
-            'standard': 0,
+            'standard': lambda: 0,
             # save satisfies ability checks and saving throws
             'save': lambda: self.character.ability_modifiers.get(self.ability),
             # check satisfies skill checks
@@ -61,5 +61,5 @@ class Roller:
         return result
     
     def get_result(self):
-        return self.roll_dice() + self.roll_mod
+        return self.roll_dice() + self.roll_mod()
     
