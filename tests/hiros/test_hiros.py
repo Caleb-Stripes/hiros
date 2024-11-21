@@ -53,3 +53,6 @@ class TestHiroClass(unittest.TestCase):
         self.assertEqual(self.hiro.get_mod('INT'), 0)
         self.assertEqual(self.hiro.get_mod('WIS'), 0)
         self.assertEqual(self.hiro.get_mod('CHA'), 0)
+        
+    def test_HiroClass_get_mod_no_ability(self):
+        self.assertEqual(self.hiro.get_mod(), self.hiro.ability_modifiers)
