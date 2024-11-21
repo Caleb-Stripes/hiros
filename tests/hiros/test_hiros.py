@@ -28,3 +28,15 @@ class TestHiroClass(unittest.TestCase):
         self.assertEqual(self.hiro.ability_modifiers.get('CHA'), 0)
         
         self.assertIsInstance(self.hiro.skill_list, SkillList)
+        
+    def test_HiroClass_str_(self):
+        self.assertEqual(str(self.hiro), 'Hiro')
+        
+    def test_HiroClass_level_up(self):
+        self.hiro.level_up()
+        self.assertEqual(self.hiro.character_level, 2)
+        self.assertEqual(self.hiro.proficiency_bonus, 2)
+        
+    def test_HiroClass_update_skill_proficiency(self):
+        self.hiro.update_skill_proficiency('Athletics', 'proficient')
+        self.assertEqual(self.hiro.skill_list.skills['Athletics'].proficiency, 'proficient')

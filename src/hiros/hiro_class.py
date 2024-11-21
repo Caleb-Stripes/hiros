@@ -27,7 +27,7 @@ class HiroClass:
         return 2
     
     def update_skill_proficiency(self, skill_name, proficiency: str):
-        self.skills[skill_name].update_proficiency(proficiency)
+        self.skill_list.skills[skill_name].update_prof(proficiency)
         
     def update_ability_score(self, ability: str, value: int):
         self.ability_scores.update(ability, value)
