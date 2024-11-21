@@ -35,7 +35,7 @@ class HiroClass:
         
     def get_mod(self, ability=None):
         if ability:
-            return {self.ability_modifiers.get(ability)}
+            return self.ability_modifiers.get(ability)
         return self.ability_modifiers
         
         

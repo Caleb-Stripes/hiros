@@ -45,3 +45,11 @@ class TestHiroClass(unittest.TestCase):
         self.hiro.update_ability_score('strength', 12)
         self.assertEqual(self.hiro.ability_scores.strength, 12)
         self.assertEqual(self.hiro.ability_modifiers.get('STR'), 1)
+        
+    def test_HiroClass_get_mod(self):
+        self.assertEqual(self.hiro.get_mod('STR'), 0)
+        self.assertEqual(self.hiro.get_mod('DEX'), 0)
+        self.assertEqual(self.hiro.get_mod('CON'), 0)
+        self.assertEqual(self.hiro.get_mod('INT'), 0)
+        self.assertEqual(self.hiro.get_mod('WIS'), 0)
+        self.assertEqual(self.hiro.get_mod('CHA'), 0)
