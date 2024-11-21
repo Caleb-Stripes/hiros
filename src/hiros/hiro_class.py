@@ -17,8 +17,8 @@ class HiroClass:
         before_prof = self.proficiency_bonus
         self.proficiency_bonus = self.calc_prof_bonus(self.proficiency_bonus)
         if before_prof != self.proficiency_bonus:
-            for skill in self.skills:
-                skill.update_proficiency_bonus(self.proficiency_bonus)
+            for skill in self.skill_list.skills.values():
+                skill.update_prof_bonus(self.proficiency_bonus)
                 
     def calc_prof_bonus(self, level):
         calc = math.ceil(self.character_level / 4) + 1

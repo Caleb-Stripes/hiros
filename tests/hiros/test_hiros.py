@@ -37,6 +37,16 @@ class TestHiroClass(unittest.TestCase):
         self.assertEqual(self.hiro.character_level, 2)
         self.assertEqual(self.hiro.proficiency_bonus, 2)
         
+    def test_HiroClass_level_up_increased_proficiency(self):
+        self.hiro.update_skill_proficiency('Athletics', 'proficient')
+        self.assertEqual(self.hiro.skill_list.skills['Athletics'].bonus, 2)
+        self.hiro.level_up()
+        self.hiro.level_up()
+        self.hiro.level_up()
+        self.hiro.level_up()
+        self.assertEqual(self.hiro.proficiency_bonus, 3)
+        self.assertEqual(self.hiro.skill_list.skills['Athletics'].bonus, 3)
+        
     def test_HiroClass_update_skill_proficiency(self):
         self.hiro.update_skill_proficiency('Athletics', 'proficient')
         self.assertEqual(self.hiro.skill_list.skills['Athletics'].proficiency, 'proficient')
@@ -56,3 +66,5 @@ class TestHiroClass(unittest.TestCase):
         
     def test_HiroClass_get_mod_no_ability(self):
         self.assertEqual(self.hiro.get_mod(), self.hiro.ability_modifiers)
+        
+    
