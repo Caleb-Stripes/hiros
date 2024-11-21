@@ -42,6 +42,6 @@ class TestHiroClass(unittest.TestCase):
         self.assertEqual(self.hiro.skill_list.skills['Athletics'].proficiency, 'proficient')
         
     def test_HiroClass_update_ability_score(self):
-        self.hiro.update_ability_score('STR', 12)
+        self.hiro.update_ability_score('strength', 12)
         self.assertEqual(self.hiro.ability_scores.strength, 12)
         self.assertEqual(self.hiro.ability_modifiers.get('STR'), 1)
