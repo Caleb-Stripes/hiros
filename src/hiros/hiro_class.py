@@ -17,8 +17,8 @@ class HiroClass:
         before_prof = self.proficiency_bonus
         self.proficiency_bonus = self.calc_prof_bonus(self.proficiency_bonus)
         if before_prof != self.proficiency_bonus:
-            for skill in self.skills:
-                skill.update_proficiency_bonus(self.proficiency_bonus)
+            for skill in self.skill_list.skills.values():
+                skill.update_prof_bonus(self.proficiency_bonus)
                 
     def calc_prof_bonus(self, level):
         calc = math.ceil(self.character_level / 4) + 1
@@ -27,7 +27,7 @@ class HiroClass:
         return 2
     
     def update_skill_proficiency(self, skill_name, proficiency: str):
-        self.skills[skill_name].update_proficiency(proficiency)
+        self.skill_list.skills[skill_name].update_prof(proficiency)
         
     def update_ability_score(self, ability: str, value: int):
         self.ability_scores.update(ability, value)
@@ -35,7 +35,7 @@ class HiroClass:
         
     def get_mod(self, ability=None):
         if ability:
-            return {self.ability_modifiers.get(ability)}
+            return self.ability_modifiers.get(ability)
         return self.ability_modifiers
         
         
